@@ -1,37 +1,51 @@
 import { useFormik } from "formik"
 import { Form, Input } from "./Forms.styled"
+import { basicSchema } from "./schemas"
+const onSubmit = () => {
+    console.log("submitted")
+};
 
 export const BasicForm = () => {
-    const formik = useFormik({
+    const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
             email: "",
             age: "",
             password: "",
-
-        }
+            confirmPassword: "",
+        },
+        validationSchema: basicSchema,
+        onSubmit,
     })
-    console.log(formik)
+    console.log(errors);
     return (
-        <Form>
+        <Form onSubmit={handleSubmit} autoComplete="off">
             <label htmlFor="email" >Email</label>
-            <Input value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+            <Input value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 id="email" type="email" placeholder="Please enter your email..." />
 
             <label htmlFor="age" >Age</label>
-            <Input value={formik.values.age}
+            <Input value={values.age}
                 type="number"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 id="age" placeholder="Please enter your age..." />
 
             <label htmlFor="password" >Password</label>
-            <Input value={formik.values.password}
+            <Input value={values.password}
                 type="password"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                id="email" placeholder="Please enter your password..." />
+                onChange={handleChange}
+                onBlur={handleBlur}
+                id="password" placeholder="Please enter your password..." />
+
+            <label htmlFor="confirmPassword" >Confirm Password</label>
+            <Input value={values.confirmPassword}
+                type="confirmPassword"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                id="confirmPassword" placeholder="Please repeat your password..." />
+            <button type="submit">Submit</button>
         </Form>
     )
 }
