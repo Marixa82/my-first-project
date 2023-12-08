@@ -1,12 +1,13 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import { BasicForm } from './components/BasicForm';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello Yana!</h1>
+      <h1>BasicForm</h1>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,8 +18,8 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-        <h2>Hello Maryna</h2>
+        </a> */}
+        <BasicForm />
       </header>
     </div>
   );
