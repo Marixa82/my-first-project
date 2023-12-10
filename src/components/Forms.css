@@ -13,3 +13,7 @@ form {
 label {
   text-align: start;
 }
+input.input-error,
+.select-error {
+  border-color: darkred;
+}

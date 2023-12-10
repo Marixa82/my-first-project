@@ -25,7 +25,7 @@ border: 2px solid inherit; /* Задаємо початковий колір б�
     border-color: darkred;
   }
 `
-export const ErrorBlock = styled.div`
-border-color: #fc8181;`
+// export const ErrorBlock = styled.div`
+// border-color: #fc8181;`
 
 
